@@ -12,22 +12,14 @@ import PoemSaveForm from "./PoemSaveForm";
  * state: none
  */
 
-function PoemsApp({ poems, seeds }) {
-  const [newPoem, setNewPoem] = useState(null);
-
-  async function generatePoem(formData) {
-    console.log("generatePoem in app.js. formData:", formData);
-    let generatedPoem = await MarkovApi.generatePoem(formData);
-    setNewPoem((poem) => generatedPoem);
-  }
+function PoemsApp({ poems, seeds, createNewPoem, generatePoem, newPoem }) {
 
   if (!poems) return "LOADING!!!!!";
   return (
     <div>
-      THIS IS THE PoemsApp
       {seeds && <PoemForm seeds={seeds} handleSave={generatePoem} />}
+      {newPoem && <PoemSaveForm initialFormData={newPoem} handleSave={createNewPoem} />}
       {poems && <PoemCardList poems={poems} />}
-      {newPoem && <PoemSaveForm newPoem={newPoem} />}
     </div>
   );
 }
