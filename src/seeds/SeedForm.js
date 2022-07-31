@@ -15,9 +15,9 @@ const defaultFormData = {
  * state: formData
  */
 
-function SeedForm(initialFormData=defaultFormData, handleSave) {
+function SeedForm({initialFormData=defaultFormData, handleSave}) {
   const [formData, setFormData] = useState(initialFormData);
-  console.debug("SeedForm", formData);
+  console.debug("SeedForm, gormData:", formData, "handlesave:", handleSave);
 
   /**update form input */
   function handleChange(evt) {
@@ -33,7 +33,7 @@ function SeedForm(initialFormData=defaultFormData, handleSave) {
       evt.preventDefault();
       console.debug("handleSubmit. handleSave:", handleSave);
       handleSave(formData);
-      setFormData(initialFormData);
+      setFormData(formData => (initialFormData));
   }
   return (
     <Form onSubmit={handleSubmit}>

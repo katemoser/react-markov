@@ -1,16 +1,18 @@
 import React from "react";
-import {Routes, Route, Navigate, Router} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 import Homepage from "../home/Homepage";
 import PoemApp from "../poems/PoemApp";
 import SeedApp from "../seeds/SeedApp";
 
-function RoutesList(){
+function RoutesList({seeds, poems, createNewSeed, generatePoem}){
 
     return (
             <Routes>
                 <Route path="/" element={<Homepage />} />
-                <Route path="/poems" element={<PoemApp />} />
-                <Route path="/seeds" element={<SeedApp />} />
+                <Route path="/poems" element={
+                    <PoemApp poems={poems} seeds={seeds}/>}/>
+                <Route path="/seeds" element={
+                    <SeedApp seeds={seeds} createNewSeed={createNewSeed}/>} />
             </Routes>
 
     )

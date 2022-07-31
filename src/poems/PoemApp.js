@@ -1,40 +1,35 @@
-import React, {useState, useEffect} from "react";
+import React, { useState } from "react";
 import MarkovApi from "../api/MarkovApi";
 
-import PoemCardList from "./PoemCardList"
-
+import PoemCardList from "./PoemCardList";
+import PoemForm from "./PoemForm";
+import PoemSaveForm from "./PoemSaveForm";
 
 /** Poems app: handles poems
- * 
- * props: none
- * 
- * state: poems like {poems: [poem, ...}
+ *
+ * props: Poems like {poems: [poem, ...]}, generatePoem
+ *
+ * state: none
  */
 
+function PoemsApp({ poems, seeds }) {
+  const [newPoem, setNewPoem] = useState(null);
 
- function PoemsApp(){
-    
-    const[poems, setPoems] = useState(null);
+  async function generatePoem(formData) {
+    console.log("generatePoem in app.js. formData:", formData);
+    let generatedPoem = await MarkovApi.generatePoem(formData);
+    setNewPoem((poem) => generatedPoem);
+  }
 
-    useEffect(function getAllPoemsOnMount(){
-        console.debug("PoemApp useEffect getAllPoemsOnMount")
-        search()
-    }, [])
-
-    async function search(searchTerm){
-        let poemsFromApi = await MarkovApi.getPoems(searchTerm);
-        setPoems(poemsFromApi);
-    }
-
-    if(!poems) return "LOADING!!!!!";
-    return (
-        <div>
-            THIS IS THE PoemsApp
-            {poems && 
-            <PoemCardList poems={poems}/>
-            }
-        </div>
-    )
+  if (!poems) return "LOADING!!!!!";
+  return (
+    <div>
+      THIS IS THE PoemsApp
+      {seeds && <PoemForm seeds={seeds} handleSave={generatePoem} />}
+      {poems && <PoemCardList poems={poems} />}
+      {newPoem && <PoemSaveForm newPoem={newPoem} />}
+    </div>
+  );
 }
 
-export default PoemsApp
+export default PoemsApp;
