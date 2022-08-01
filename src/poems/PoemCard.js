@@ -5,6 +5,8 @@ import {Card, CardBody, CardSubtitle, CardText, CardTitle} from "reactstrap";
  * props: poem like {id, seed_id, submitted_at, submitted_by_user_id, text}
  * 
  * state: none
+ * 
+ * PoemCardList -> PoemCard
  */
 
  function PoemCard({poem}){

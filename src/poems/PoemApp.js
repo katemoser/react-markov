@@ -7,9 +7,23 @@ import PoemSaveForm from "./PoemSaveForm";
 
 /** Poems app: handles poems
  *
- * props: Poems like {poems: [poem, ...]}, generatePoem
+ *  props: 
+ *    poems like [poem, ... ]   
+ *      where poem is like {id, seed_id, text, submitted_by_user_id, submitted_at }
+ * 
+ *    seeds like [seed, ... ]
+ *      where seed is like: {id, text, title, author, submitted_by_user_id, submitted_at}
+ * 
+ *    new poem like {text, seed_id}
+ * 
+ *    createNewPoem (function to add new poem)
+ *    generatePoem (function to generate new poem using markov chain)
  *
- * state: none
+ *  state: none
+ * 
+ *  RoutesList -> PoemApp -> PoemForm
+ *                        -> PoemSaveForm
+ *                        -> PoemCardList
  */
 
 function PoemsApp({ poems, seeds, createNewPoem, generatePoem, newPoem }) {
@@ -18,7 +32,7 @@ function PoemsApp({ poems, seeds, createNewPoem, generatePoem, newPoem }) {
   return (
     <div>
       {seeds && <PoemForm seeds={seeds} handleSave={generatePoem} />}
-      {newPoem && <PoemSaveForm initialFormData={newPoem} handleSave={createNewPoem} />}
+      {newPoem && <PoemSaveForm newPoem={newPoem} handleSave={createNewPoem} />}
       {poems && <PoemCardList poems={poems} />}
     </div>
   );

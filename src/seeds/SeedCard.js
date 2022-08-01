@@ -11,6 +11,8 @@ import {
  * props: seed like {author, id, poems_seeded, submitted_at, submitted_by_user_id, text, title}
  * 
  * state: none
+ * 
+ * SeedCardList -> SeedCard
  */
 
  function SeedCard({seed}){

@@ -11,6 +11,8 @@ import {
  * 
  * Props: None
  * State: None
+ * 
+ * App -> Navigation
  */
 function Navigation(){
     return (

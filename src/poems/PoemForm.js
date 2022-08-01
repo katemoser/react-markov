@@ -6,12 +6,16 @@ const defaultFormData = {
 };
 
 /** PoemFormHandler: renders a form for a new poem
- * choose a seed, generate poem, add title etc,
- * choose to save or not
+ * choose a seed, generate poem text
  *
- * props: initial formData like, handleSave
+ * props: 
+ *  initial formData like {seed_id}, 
+ *  handleSave
  *
- * state: formData
+ * state: 
+ *  formData like {seed_id}
+ * 
+ * PoemApp -> PoemForm
  */
 
 function PoemForm({ initialFormData = defaultFormData, seeds, handleSave }) {

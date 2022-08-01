@@ -5,6 +5,24 @@ import Navigation from "./routes-nav/Navigation";
 import RoutesList from "./routes-nav/RoutesList";
 import MarkovApi from "./api/MarkovApi";
 
+
+/**
+ * App: main controller for Markkov app
+ * 
+ * props: none
+ * 
+ * State: 
+ *  poems like [poem, ... ]   
+ *    where poem is like {id, seed_id, text, submitted_by_user_id, submitted_at }
+ * 
+ *  seeds like [seed, ... ]
+ *    where seed is like: {id, text, title, author, submitted_by_user_id, submitted_at}
+ * 
+ *  new poem like {text, seed_id}
+ * 
+ * App -> Navigation
+ *     -> RoutesList
+ */
 function App() {
   const [poems, setPoems] = useState(null);
   const [seeds, setSeeds] = useState(null);
@@ -50,7 +68,7 @@ function App() {
         text: poemText,
         title: ""
     }
-    setNewPoem(generatedPoem);
+    setNewPoem((curr) => generatedPoem);
   }
 
   return (

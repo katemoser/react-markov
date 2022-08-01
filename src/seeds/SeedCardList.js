@@ -1,9 +1,13 @@
 import SeedCard from "./SeedCard"
 /** Seed app: handles Seed
  * 
- * props: seeds like [seed, ...]
+ * props: 
+ *  seeds like [seed, ...]
+ *      with seed like {id, text, title, author, submitted_by_user_id, submitted_at}
  * 
  * state: none
+ * 
+ * SeedApp -> SeedCardList -> SeedCard
  */
 
  function SeedCardList({seeds}){

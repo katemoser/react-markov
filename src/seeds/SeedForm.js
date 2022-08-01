@@ -10,9 +10,13 @@ const defaultFormData = {
 
 /** Seed form:create new seed
  *
- * props: initialFormData like {title:"", author:"",text:""}, handleSave
+ * props: 
+ *  initialFormData like {title:"", author:"",text:""}, 
+ *  handleSave
  *
  * state: formData
+ * 
+ *  SeedApp -> SeedForm
  */
 
 function SeedForm({initialFormData=defaultFormData, handleSave}) {

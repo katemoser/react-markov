@@ -3,9 +3,12 @@ import PoemCard from "./PoemCard"
 
 /** Poems List: renders of list of poems
  * 
- * props: poems like {poems: [poem, ...]}
+ * props: poems like [poem, ...]
+ *  with poem like {id, seed_id, submitted_at, submitted_by_user_id, text}
  * 
  * state: none
+ * 
+ * PoemApp -> PoemCardList -> Poem Card
  */
 
 

@@ -5,9 +5,15 @@ import SeedForm from "./SeedForm";
 
 /** Seed app: handles Seeds
  * 
- * props: seeds like {seeds: [seed, ...]}
+ * props: 
+ *  seeds like [seed, ...]
+ *      with seed like {id, text, title, author, submitted_by_user_id, submitted_at}
+ *  createNewSeed ()
  * 
  * state: none
+ * 
+ * RoutesList -> SeedApp -> SeedForm
+ *                       -> SeedCardList
  */
 
 function SeedApp({seeds, createNewSeed}){
