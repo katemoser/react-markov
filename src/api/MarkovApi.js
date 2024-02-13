@@ -1,14 +1,14 @@
 import axios from "axios";
 
-const BASE_URL = process.env.API_BASE_URL || "http://localhost:5000";
+const BASE_URL = process.env.API_BASE_URL || "http://localhost:5001";
 
 /** functions for making AJAX requests to markov flask API
- * 
+ *
  */
 class MarkovApi {
 
     /** Returns a list of poems [poem, ...]
-     * like {id, text, seed_id, submitted_by_user_id, submitted_at} 
+     * like {id, text, seed_id, submitted_by_user_id, submitted_at}
      */
   static async getPoems() {
     let response = await axios.get(`${BASE_URL}/poems`);
@@ -25,8 +25,8 @@ class MarkovApi {
     return response.data.seeds;
   }
 
-  /** Takes formData like 
-   * 
+  /** Takes formData like
+   *
    */
 
   static async createSeed(formData) {

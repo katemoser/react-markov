@@ -3,21 +3,21 @@ import { Form, FormGroup, Label, Input, Col, Button } from "reactstrap";
 
 /**
  * PoemSaveForm displays the new poem, allows you to title it, and save
- * 
- * props: 
+ *
+ * props:
  *  newPoem like: {seed_id, text}
  *  handlleSave
- * 
- * state: 
+ *
+ * state:
  *  formData
- * 
+ *
  * PoemApp -> PoemSaveForm
  */
 
 function PoemSaveForm({ newPoem, handleSave }) {
     const [formData, setFormData] = useState(newPoem);
     console.debug("SeedForm, gormData:", formData, "handlesave:", handleSave);
-  
+
     /**update form input */
     function handleChange(evt) {
       const input = evt.target;
@@ -26,7 +26,7 @@ function PoemSaveForm({ newPoem, handleSave }) {
         [input.name]: input.value,
       }));
     }
-  
+
     /** Call parent function and clear form. */
     function handleSubmit(evt) {
         evt.preventDefault();
@@ -41,7 +41,7 @@ function PoemSaveForm({ newPoem, handleSave }) {
 
       <FormGroup row>
         <Label for="title" sm={2}>
-          Title:    
+          Title:
         </Label>
         <Col sm={10}>
           <Input name="title" value={formData.title} onChange={handleChange} />
@@ -53,7 +53,7 @@ function PoemSaveForm({ newPoem, handleSave }) {
           Text:
         </Label>
         <Col sm={10}>
-        <p name="text">{newPoem.text}</p>
+        <pre name="text">{newPoem.text}</pre>
         </Col>
       </FormGroup>
       <Button>Save Poem</Button>
